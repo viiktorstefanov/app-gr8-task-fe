@@ -68,7 +68,7 @@ const CheckIcon = styled(FaCheck)`
 const Note = ( {note, onDelete, onEdit }) => {
     const [ content, setContent ] = useState(note.content);
     const [ isHovered, setIsHovered ] = useState(false);
-    const [ isEdited, setIsEdited ] = useState(true);
+    const [ isEdited, setIsEdited ] = useState(false);
 
     const onChange = (e) => {
         setContent(e.target.value);
@@ -83,13 +83,17 @@ const Note = ( {note, onDelete, onEdit }) => {
     };
     
     const onEditHandler = () => {
-        setIsEdited(true)
+        setIsEdited(true);
     };
 
-    const onCheckHandler = () => {
-        onEdit(note.id, content);
+    const onCheckHandler = async () => {
+        await onEdit(note.id, content);
         setIsEdited(false);
-    }
+    };
+
+    const onDeleteHandler = async () => {
+        await onDelete(note.id);
+    };
     
   return (
     <StyledNote onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
@@ -97,7 +101,7 @@ const Note = ( {note, onDelete, onEdit }) => {
         {isHovered && 
             <IconsWrapper>
                 {isEdited ? <CheckIcon onClick={onCheckHandler} /> : <EditIcon onClick={onEditHandler} />}
-                <RemoveIcon />
+                <RemoveIcon onClick={onDeleteHandler}/>
             </IconsWrapper>}
       <p>{note.contnet}</p>
     </StyledNote>
