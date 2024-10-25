@@ -97,7 +97,7 @@ const Note = ( {note, onDelete, onEdit }) => {
     
   return (
     <StyledNote onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-        <NoteField value={content} onChange={onChange} disabled={isEdited}/>
+        <NoteField value={content} onChange={onChange} disabled={!isEdited}/>
         {isHovered && 
             <IconsWrapper>
                 {isEdited ? <CheckIcon onClick={onCheckHandler} /> : <EditIcon onClick={onEditHandler} />}
