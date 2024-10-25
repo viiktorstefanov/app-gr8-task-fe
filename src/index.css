@@ -1,16 +1,23 @@
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
 
+body {
   background-color: #c9c7c7;
   font-family: 'Roboto';
 }
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 ul {
   list-style: none;
+}
+
+textarea {
+  resize: none;
 }

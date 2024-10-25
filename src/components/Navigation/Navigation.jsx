@@ -1,20 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const Nav = styled.nav`
-    display: flex;
-    flex-direction: column;
-    background-color: red;
+  height: 100%;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  background-color: #387d32;
+  border-top-right-radius: 8px;
+  color: #fff;
+`;
+
+const NavList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-item: center;
+  gap: 1rem;
+  width: 100%;
+`;
+
+const NavItem = styled.li`
+  color: inherit;
+
+  &:hover {
+  opacity: 0.5
+  }
 `;
 
 const Navigation = () => {
   return (
     <Nav>
-        <Link to={'/'}>Notes</Link>
-        <Link to={'/add-notes'}>Notes</Link>
+      <NavList>
+        <NavItem>
+          <Link to={"/"}>Notes</Link>
+        </NavItem>
+        <NavItem>
+          <Link to={"/add-notes"}>Add Note</Link>
+        </NavItem>
+      </NavList>
     </Nav>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;
