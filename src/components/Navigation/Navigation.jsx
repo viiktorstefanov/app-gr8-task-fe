@@ -24,6 +24,8 @@ const NavList = styled.ul`
 
 const NavItem = styled.li`
   color: inherit;
+  font-family: 'Roboto';
+  font-size: 1rem;
 
   &:hover {
   opacity: 0.5
@@ -38,7 +40,7 @@ const Navigation = () => {
           <Link to={"/"}>Notes</Link>
         </NavItem>
         <NavItem>
-          <Link to={"/add-notes"}>Add Note</Link>
+          <Link to={"/add-note"}>Add note</Link>
         </NavItem>
       </NavList>
     </Nav>
